@@ -1,0 +1,41 @@
+<html ng-app="mileageApp">
+	<head>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="mileage.js"></script>
+	</head>
+	<body ng-controller="MileageController">
+		<div class="pure-g">
+			<div class="pure-u-1-5">
+				<div id="addresses">
+					<div id="address-list" class="pure-menu pure-menu-open">
+						<ul>
+							<li ng-repeat="(id, address) in addresses"><a href="" ng-click="removeAddress(id)">{{ address }}</a></li>
+						</ul>
+					</div>
+					<div id="new-address">
+						<form class="pure-form" ng-submit="addAddress()">
+						      <input type="text" ng-model="enteredAddress" placeholder="address">
+						      <input type="submit" class="pure-button" value="add">
+						    </form>
+						</div>
+					</div>
+	    	</div>
+	    	<div class="pure-u-4-5">
+				<div id="distances">
+					<table class="pure-table pure-table-bordered">
+					<tr>
+						<td></td>
+						<td class="table-address" ng-repeat="(id, address) in addresses | orderBy:id ">{{ address }}</th>
+	    	    	<tr ng-repeat="(origin, row) in distances | orderBy:origin ">
+						<td class="table-address">{{ addresses[origin] }}</th>
+						<td ng-repeat="(destination, column) in row | orderBy:destination ">{{ column }}</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

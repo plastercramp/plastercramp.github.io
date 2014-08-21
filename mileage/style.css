@@ -1,0 +1,25 @@
+body {
+	margin-top: 40px;
+}
+#addresses {
+	margin-left: 40px;
+}
+#distances {
+	margin-left: 40px;
+}
+#address-list {
+	-moz-box-sizing:    border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing:         border-box;
+	margin-bottom: 4px;
+}
+#new-address {
+	text-align: center;
+}
+#new-address > form > input {
+	margin-bottom: 4px;
+	width: 100%;
+}
+.table-address {
+	font-weight: bold;
+}
